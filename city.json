@@ -1,6 +1,8 @@
-{
-    "city": "Grenoble",
-    "country": "France",
-    "latitude": 45.1787,
-    "logitude": 5.7148
- }
+{ 
+    "cities": {
+        "name": "Grenoble",
+        "country": "France",
+        "latitude": 45.1787,
+        "longitude": 5.7148
+    }
+    }
