@@ -44,7 +44,7 @@ export const App = () => {
         country={cities.country}
         // description={weatherData.}
         weatherCode={weatherData.current.weather_code}
-        // iconName={weatherData.weather[0].icon}
+        iconName={weatherData.current.weather_code}
         unitSystem={unitSystem}
         weatherData={weatherData}
       />

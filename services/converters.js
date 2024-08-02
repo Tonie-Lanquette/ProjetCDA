@@ -35,7 +35,7 @@ export const degToCompass = (num) => {
 export const unixToLocalTime = (unixSeconds, timezone) => {
   let time = new Date((unixSeconds + timezone) * 1000)
   
-      .toLocaleDateString()
+      .toTimeString()
     // .toISOString()
     // .match(/(\d{2}:\d{2})/)[0];
 
