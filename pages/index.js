@@ -18,7 +18,7 @@ export const App = () => {
 
  const  getData = async () => {
       const response = await fetch(
-        `https://api.open-meteo.com/v1/forecast?latitude=${cities.latitude}&longitude=${cities.longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,rain,showers,snowfall,weather_code,wind_speed_10m,wind_direction_10m&daily=sunrise,sunset&models=meteofrance_arome_france`
+        `https://api.open-meteo.com/v1/forecast?latitude=${cities.latitude}&longitude=${cities.longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,rain,showers,snowfall,weather_code,wind_speed_10m,wind_direction_10m&hourly=visibility&daily=sunrise,sunset&models=meteofrance_arome_france`
       );
 
       const data = await response.json();
@@ -32,36 +32,36 @@ export const App = () => {
 
  
 
-//   const changeSystem = () =>
-//     unitSystem == "metric"
-//       ? setUnitSystem("imperial")
-//       : setUnitSystem("metric");
+  const changeSystem = () =>
+    unitSystem == "metric"
+      ? setUnitSystem("imperial")
+      : setUnitSystem("metric");
 
-//   return weatherData && !weatherData.message ? (
-//     <div className={styles.wrapper}>
-//       <MainCard
-//         city={cities.name}
-//         country={cities .country}
-//         // description={weatherData.}
-//         weatherCode={weatherData.current.weather_code}
-//         // iconName={weatherData.weather[0].icon}
-//         unitSystem={unitSystem}
-//         weatherData={weatherData}
-//       />
-//       <ContentBox>
-//         <Header>
-//           <DateAndTime weatherData={weatherData} unitSystem={unitSystem} />
-//         </Header>
-//         <MetricsBox weatherData={weatherData} unitSystem={unitSystem} />
-//         <UnitSwitch onClick={changeSystem} unitSystem={unitSystem} />
-//       </ContentBox>
-//     </div>
-//   ) : weatherData && weatherData.message ? (
-//     <ErrorScreen errorMessage="City not found, try again!">
-//     </ErrorScreen>
-//   ) : (
-//     <LoadingScreen loadingMessage="Loading data..." />
-//   );
+  return weatherData && !weatherData.message ? (
+    <div className={styles.wrapper}>
+      <MainCard
+        city={cities.name}
+        country={cities.country}
+        // description={weatherData.}
+        weatherCode={weatherData.current.weather_code}
+        // iconName={weatherData.weather[0].icon}
+        unitSystem={unitSystem}
+        weatherData={weatherData}
+      />
+      <ContentBox>
+        <Header>
+          <DateAndTime weatherData={weatherData} unitSystem={unitSystem} />
+        </Header>
+        <MetricsBox weatherData={weatherData} unitSystem={unitSystem} />
+        <UnitSwitch onClick={changeSystem} unitSystem={unitSystem} />
+      </ContentBox>
+    </div>
+  ) : weatherData && weatherData.message ? (
+    <ErrorScreen errorMessage="City not found, try again!">
+    </ErrorScreen>
+  ) : (
+    <LoadingScreen loadingMessage="Loading data..." />
+  );
  };
 
 export default App;

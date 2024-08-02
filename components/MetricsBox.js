@@ -14,24 +14,24 @@ export const MetricsBox = ({ weatherData, unitSystem }) => {
       <MetricsCard
         title={"Humidity"}
         iconSrc={"/icons/humidity.png"}
-        metric={weatherData.main.humidity}
+        metric={weatherData.current.relative_humidity_2m}
         unit={"%"}
       />
       <MetricsCard
         title={"Wind speed"}
         iconSrc={"/icons/wind.png"}
-        metric={getWindSpeed(unitSystem, weatherData.wind.speed)}
+        metric={getWindSpeed(unitSystem, weatherData.current.wind_speed_10m)}
         unit={unitSystem == "metric" ? "m/s" : "m/h"}
       />
       <MetricsCard
         title={"Wind direction"}
         iconSrc={"/icons/compass.png"}
-        metric={degToCompass(weatherData.wind.deg)}
+        metric={degToCompass(weatherData.current.wind_direction_10m)}
       />
       <MetricsCard
         title={"Visibility"}
         iconSrc={"/icons/binocular.png"}
-        metric={getVisibility(unitSystem, weatherData.visibility)}
+        metric={getVisibility(unitSystem, weatherData.hourly_units.visibility)}
         unit={unitSystem == "metric" ? "km" : "miles"}
       />
       <MetricsCard
@@ -39,12 +39,12 @@ export const MetricsBox = ({ weatherData, unitSystem }) => {
         iconSrc={"/icons/sunrise.png"}
         metric={getTime(
           unitSystem,
-          weatherData.sys.sunrise,
+          weatherData.daily_units.sunrise,
           weatherData.timezone
         )}
         unit={getAMPM(
           unitSystem,
-          weatherData.sys.sunrise,
+          weatherData.daily_units.sunrise,
           weatherData.timezone
         )}
       />
@@ -53,10 +53,10 @@ export const MetricsBox = ({ weatherData, unitSystem }) => {
         iconSrc={"/icons/sunset.png"}
         metric={getTime(
           unitSystem,
-          weatherData.sys.sunset,
+          weatherData.daily_units.sunset,
           weatherData.timezone
         )}
-        unit={getAMPM(unitSystem, weatherData.sys.sunset, weatherData.timezone)}
+        unit={getAMPM(unitSystem, weatherData.daily_units.sunset, weatherData.timezone)}
       />
     </div>
   );
