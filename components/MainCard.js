@@ -20,7 +20,7 @@ export const MainCard = ({
         width="300"
         height="300"
         src={`/icons/${iconName}.svg`}
-        alt="weatherIcon"
+        alt="Icone météo"
       />
       <h1 className={styles.temperature}>
         {unitSystem == "metric"
@@ -29,7 +29,7 @@ export const MainCard = ({
         °{unitSystem == "metric" ? "C" : "F"}
       </h1>
       <p>
-        Feels like{" "}
+        Ressenti{" "}
         {unitSystem == "metric"
           ? Math.round(weatherData.current.apparent_temperature)
           : Math.round(ctoF(weatherData.current.apparent_temperature))}

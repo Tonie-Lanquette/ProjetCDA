@@ -12,30 +12,30 @@ export const MetricsBox = ({ weatherData, unitSystem }) => {
   return (
     <div className={styles.wrapper}>
       <MetricsCard
-        title={"Humidity"}
+        title={"Humidité"}
         iconSrc={"/icons/humidity.png"}
         metric={weatherData.current.relative_humidity_2m}
         unit={"%"}
       />
       <MetricsCard
-        title={"Wind speed"}
+        title={"Vitesse du vent"}
         iconSrc={"/icons/wind.png"}
         metric={getWindSpeed(unitSystem, weatherData.current.wind_speed_10m)}
         unit={unitSystem == "metric" ? "m/s" : "m/h"}
       />
       <MetricsCard
-        title={"Wind direction"}
+        title={"Direction du vent"}
         iconSrc={"/icons/compass.png"}
         metric={degToCompass(weatherData.current.wind_direction_10m)}
       />
       <MetricsCard
-        title={"Visibility"}
+        title={"Visibilité"}
         iconSrc={"/icons/binocular.png"}
         metric={getVisibility(unitSystem, weatherData.hourly_units.visibility)}
         unit={unitSystem == "metric" ? "km" : "miles"}
       />
       <MetricsCard
-        title={"Sunrise"}
+        title={"Lever de soleil"}
         iconSrc={"/icons/sunrise.png"}
         metric={getTime(
           unitSystem,
@@ -49,7 +49,7 @@ export const MetricsBox = ({ weatherData, unitSystem }) => {
         )}
       />
       <MetricsCard
-        title={"Sunset"}
+        title={"Coucher de soleil"}
         iconSrc={"/icons/sunset.png"}
         metric={getTime(
           unitSystem,

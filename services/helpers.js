@@ -28,13 +28,13 @@ export const getAMPM = (unitSystem, currentTime, timezone) =>
 export const getWeekDay = (weatherData) => {
   
   const weekday = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
+    "Dimanche",
+    "Lundi",
+    "Mardi",
+    "Mercredi",
+    "Jeudi",
+    "Vendredi",
+    "Samedi",
   ];
   return weekday[
     new Date((weatherData.dt + weatherData.timezone) * 1000).getUTCDay()

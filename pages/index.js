@@ -43,7 +43,6 @@ export const App = () => {
       <MainCard
         city={cities.name}
         country={cities.country}
-        // description={weatherData.}
         weatherCode={weatherData.current.weather_code}
         iconName={weatherData.current.weather_code}
         unitSystem={unitSystem}
@@ -58,10 +57,10 @@ export const App = () => {
       </ContentBox>
     </div>
   ) : weatherData && weatherData.message ? (
-    <ErrorScreen errorMessage="City not found, try again!">
+    <ErrorScreen errorMessage="Ville non trouvé, essaye encore ">
     </ErrorScreen>
   ) : (
-    <LoadingScreen loadingMessage="Loading data..." />
+    <LoadingScreen loadingMessage="Chargement des données..." />
   );
  };
 
