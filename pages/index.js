@@ -19,17 +19,29 @@ export const App = () => {
  const  getData = async () => {
       const response = await fetch(
        `https://api.open-meteo.com/v1/forecast?latitude=${cities.latitude}&longitude=${cities.longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,rain,showers,snowfall,weather_code,wind_speed_10m,wind_direction_10m&hourly=visibility&daily=sunrise,sunset&models=meteofrance_arome_france`
-       
-      );
+      )
+       if (!response.ok) {
+        throw new Error('Une erreure est survenu, impossible de récupérer les données')
+      }
 
       const data = await response.json();
       setWeatherData(data);
-      console.log(data)
+      // console.log(data)
     };
 
   useEffect(() => {
     getData();
+
+    const refreshPage = setInterval(() => {
+      getData();
+    }, 3600000);
+
+    return () => clearInterval(refreshPage);
+
   }, []);
+
+
+  
 
  
 
@@ -44,6 +56,7 @@ export const App = () => {
         city={cities.name}
         country={cities.country}
         weatherCode={weatherData.current.weather_code}
+        isDay = {weatherData.current.is_day}
         iconName={weatherData.current.weather_code}
         unitSystem={unitSystem}
         weatherData={weatherData}
